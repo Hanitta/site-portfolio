@@ -1,0 +1,209 @@
+include ./mixins.pug
+
+<!DOCTYPE html>
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Portfolio | main page
+  body
+    .wrapper
+      .maincontent
+        //+image('content/user.jpg', 'user-pic')
+        //+icon('link', 'link-class')
+        //.icon-bg
+        .background-general-section
+          section.general-section
+            .content
+              .header
+                .logo
+                  h2.logo__text 
+                    a.logo__link ЛА
+                .header-menu
+                  - var menu = ['Главная', "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
+                  ul.header-menu__list
+                    each item in menu
+                      li.header-menu__item
+                        a.header-menu__link(href="#") #{item}
+                    
+                .social
+                  .social__block
+                    ul.social__list
+                      li.social__item
+                        a.social__link(href="#")
+                          +icon('insta', 'social__icon')
+                      li.social__item
+                        a.social__link(href="#")
+                          +icon('vk', 'social__icon')
+                      li.social__item
+                        a.social__link(href="#") 
+                          +icon('github', 'social__icon') 
+              .general-section__block
+                .general-section__colunm-1
+                  p Личный сайт веб разработчика
+                .general-section__colunm-2 
+                  h1.general-section__title Анна Лапкина
+              .scroll  
+                  a(href="#").scroll__link Скролл
+                    .scroll__icon
+                      +icon('scroll', 'scroll-class')
+          section.about
+            .content  
+              .about__wrap
+                .about__column-1
+                  .about__avatar
+                    +image('content/user.jpg', 'user-pic')
+                  ul.about__desc
+                  - 
+                    var items = [
+                      ['Проживаю:', 'Калининград'],
+                      ['Возраст:', '26 лет'],
+                      ['Родилась:', '5 марта 1993'],
+                    ]
+                  each item in items
+                    li.about__desc-item
+                      .about__key #{item[0]}
+                      .about__value #{item[1]} 
+                .about__column-2
+                  h4.about__prolog Привет, меня зовут
+                  h2.about__title Анна Лапкина
+                  .about__text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                  .about__ps Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+          
+        section.values
+          .content.values--content
+            .values__title
+              h2.section-title.values__title-text Чем я могу быть полезна вам
+            .values__desc
+              p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+
+            ul.user-skills
+              - 
+                var skills = [
+                  ['Front-end', ['HTML5', 'CSS', 'JavaScript', 'Jquery и Vue.js']],
+                  ['Workflow', ['Git', 'Terminal', 'Gulp', 'Webpack']],
+                ]
+              each item in skills 
+                li.user-skills__item.skills-row 
+                  h3.skills-row__title #{item[0]}
+                  ul.skills-row__list
+                    each skill in item[1]
+                      li.skills-row__item
+                        .skill
+                          svg(viewBox="0 0 200 200" preserveAspectRatio="none").skill__shape
+                            circle(r="80" cx="100" cy="100").skill__circle.skill__circle--position--under
+                            circle(r="80" cx="100" cy="100").skill__circle.skill__circle--position--above
+                            //linear-gradient(to right, #d0731b 0%, #dc9322 100%)
+                        .skill__title #{skill}      
+        section.works
+          .content
+            h2.section-title Мои работы
+            .works--content
+              .works__collumn-1
+                .slider
+                  +image('content/mu-works.png', 'slider__fillpic')
+                  .slider__preview
+                    ul.previews
+                      - for (var i = 0; i < 3; i++)
+                        li.previews__item
+                          img.previews__pic
+                  .slider__buttons
+                    .slider-button
+                      button.slider-buttons__item.slider-buttons__item--slide--prev 
+                      button.slider-buttons__item.slider-buttons__item--slide--next            
+              .works__collumn-2
+                .works__tags
+                  ul.tags
+                    - var tags = ['html', 'css', 'javascript']
+                    each tag in tags
+                      li.tags__item #{tag}
+                .works__text
+                  h3.works__title Сайт школы образования
+                  .works__desc-text
+                    p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                  a.iconed-link Посмотреть сайт
+        .background 
+          section.reviews 
+            .content
+              .reviews__header
+                h2.section-title.section-title--white--color Что обо мне говорят
+                .arrows
+                  .arrow__block
+                    a.arrow__left(href="#")
+                  .arrow__block
+                    a.arrow__right(href="#")
+              .reviews__block
+                ul.reviews__list
+                  li.reviews__item
+                    .review__text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                    .reviews__desc
+                      .reviews__avatar
+                        +image('content/photo1.png', 'reviews__avatar-pic')
+                      .reviews__desc-block
+                        .reviews__user Ковальчук Дмитрий
+                        .reviews__user-profession Основатель Loftschool
+                  li.reviews__item
+                    .review__text Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+                    .reviews__desc
+                      .reviews__avatar
+                        +image('content/photo2.png', 'reviews__avatar-pic')
+                      .reviews__desc-block
+                        .reviews__user Владимир Сабанцев
+                        .reviews__user-profession Преподаватель
+          section.contacts
+            .content
+              h2.section-title.section-title--white--color Связаться со мной
+              form.form(action="action")
+                .form__row
+                  .form__column
+                    label.form__block
+                      .block__title Введите ваше имя
+                      input.form__input(type="text", placeholder="Ковальчук Дмитрий")
+                  .form__column
+                    label.form__block
+                      .block__title Введите ваш email
+                      input.form__input(type="text" placeholder="loftschool@study.com")    
+                .form__row
+                  label.form__block
+                    .block__title Сообщение к письму
+                    textarea.form__textarea(placeholder="Требуется ваша помощь в создании сайта. Интересуют сроки и цена вопроса")
+              button.button__submit(type="submit") Отправить
+        footer.footer
+          .content.content--footer
+            .footer__column-1  
+              .year © 2019
+              .author__username Лапкина Анна
+              .author__info Личный сайт веб-разработчика
+            .footer__column-2
+              .header-menu.footer--menu
+                  - var menu = ['Главная', "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
+                  ul.header-menu__list
+                    each item in menu
+                      li.header-menu__item
+                        a.header-menu__link(href="#") #{item}
+              .footer_row
+                .footer__block-1
+                  .footer__text 
+                    p Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
+                  .social__block
+                      ul.social__list
+                        li.social__item
+                          a.social__link(href="#")
+                            +icon('insta', 'social__icon')
+                        li.social__item
+                          a.social__link(href="#")
+                            +icon('vk', 'social__icon')
+                        li.social__item
+                          a.social__link(href="#") 
+                            +icon('github', 'social__icon') 
+                .footer__block-2
+                  .footer__quote
+                    p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+                  .author Martin Golding
+                  .block dgfdvv
+                  
+                  
+                  
+
+

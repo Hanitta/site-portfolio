@@ -1,0 +1,45 @@
+.slider-buttons__item {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: #353e4e;
+ }
+
+ .slider-buttons__item--slide--prev {
+     position: relative;
+
+     &::after {
+        content: url(~images/content/keyboard-right-arrow-button.png);
+        position: absolute;
+        top: 30%;
+        left: 40%;
+        transform: rotate(180deg);
+
+        &:hover {
+            opacity: 0.15;
+        }
+     }
+ }
+
+.slider-buttons__item--slide--next {
+    position: relative;
+
+     &::after {
+        content: url(~images/content/keyboard-right-arrow-button.png);
+        position: absolute;
+        top: 30%;
+        left: 40%;
+     }
+    
+ }
+// кнопка отправки в секции связаться со мной 
+ .button__submit {
+    padding: 34px 120px;
+    background-color: #ffffff;
+    background-image: linear-gradient(to right, #d0731b 0%, #dc9322 100%);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 48px;
+    text-transform: uppercase;
+    color: #ffffff;
+}

@@ -1,0 +1,39 @@
+.values {
+    background: url(~images/content/skills-background.png) center center / cover no-repeat;
+    height: 100vh;
+    position: relative;
+    color: #fff;
+
+    &::after {
+        content: url(~images/content/hands.png);
+        position: absolute;
+        top: 5%;
+        left: -10%;
+    }
+}
+
+.values--content {
+    height: 710px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.values__title,
+.values__desc {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.values__title-text {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36px;
+    color: #fff;
+    margin: 0;
+}
+
+.values__desc {
+    margin: 60px auto 95px auto;
+    opacity: 0.5;
+}
