@@ -16,7 +16,7 @@ html(lang="ru")
         .background-general-section
           section.general-section
             .content
-              .header
+              .header 
                 .logo
                   h2.logo__text 
                     a.logo__link ЛА
@@ -54,23 +54,22 @@ html(lang="ru")
                 .about__column-1
                   .about__avatar
                     +image('content/user.jpg', 'user-pic')
-                  ul.about__desc
-                  - 
-                    var items = [
-                      ['Проживаю:', 'Калининград'],
-                      ['Возраст:', '26 лет'],
-                      ['Родилась:', '5 марта 1993'],
-                    ]
-                  each item in items
-                    li.about__desc-item
-                      .about__key #{item[0]}
-                      .about__value #{item[1]} 
+                  
+                  table.table__about
+                    tr.row__about
+                      td.data__item Проживаю:
+                      td.data__about Калининград
+                    tr.row__about
+                      td.data__item Возраст:
+                      td.data__about 26 лет
+                    tr.row__about
+                      td.data__item Родилась:
+                      td.data__about 5 марта 1993     
                 .about__column-2
                   h4.about__prolog Привет, меня зовут
                   h2.about__title Анна Лапкина
                   .about__text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-                  .about__ps Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-          
+                  .about__ps Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!         
         section.values
           .content.values--content
             .values__title
@@ -130,9 +129,9 @@ html(lang="ru")
                 h2.section-title.section-title--white--color Что обо мне говорят
                 .arrows
                   .arrow__block
-                    a.arrow__left(href="#")
+                    button.arrow__left
                   .arrow__block
-                    a.arrow__right(href="#")
+                    button.arrow__right
               .reviews__block
                 ul.reviews__list
                   li.reviews__item
